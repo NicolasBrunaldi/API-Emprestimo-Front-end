@@ -12,7 +12,7 @@ export class ClienteComponent {
 
   @Input() endereco : Endereco = {
 
-    logradouro: "",
+    rua: "",
     numero: 0,
     cep: "",
 

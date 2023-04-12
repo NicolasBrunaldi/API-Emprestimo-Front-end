@@ -14,7 +14,7 @@ export class ExcluirClienteComponent implements OnInit{
 
   endereco: Endereco = {
     cep: "",
-    logradouro: "",
+    rua: "",
     numero: 0
   }
 

@@ -28,7 +28,7 @@ export class AtualizarClienteComponent implements OnInit{
       endereco: this.formBuilder.group({
         numero: [0, Validators.compose([Validators.min(1), Validators.max(999999), Validators.pattern(/^\d*[1-9]\d*$/)])],
 
-        logradouro: [''],
+        rua: [''],
 
         cep: ['', Validators.compose([Validators.pattern(/^\d{5}-\d{3}$/)])]
       }),

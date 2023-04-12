@@ -59,16 +59,16 @@
 
       <p>Endereço:</p>
       <div class="mb-3 input-container" formGroupName="endereco">
-        <label class="form-label" for="logradouro">Logradouro:</label>
+        <label class="form-label" for="rua">Logradouro:</label>
         <input
           placeholder=""
           class="form-control input-normal"
           type="text"
-          id="logradouro"
-          formControlName="logradouro"
+          id="rua"
+          formControlName="rua"
         />
-        <div class="msg-erro" *ngIf="formulario.get('endereco.logradouro')?.errors?.['required'] && formulario.get('endereco.logradouro')?.touched">Campo obrigatório!</div>
-        <div class="msg-erro" *ngIf="formulario.get('endereco.logradouro')?.errors?.['espacoEmBranco'] && formulario.get('endereco.logradouro')?.touched">O nome não pode estar vazio</div>
+        <div class="msg-erro" *ngIf="formulario.get('endereco.rua')?.errors?.['required'] && formulario.get('endereco.rua')?.touched">Campo obrigatório!</div>
+        <div class="msg-erro" *ngIf="formulario.get('endereco.rua')?.errors?.['espacoEmBranco'] && formulario.get('endereco.rua')?.touched">O nome não pode estar vazio</div>
         <label class="form-label" for="numero">Número:</label>
         <input
           placeholder=""
@@ -95,7 +95,7 @@
         <div class="msg-erro" *ngIf="formulario.get('endereco.cep')?.errors?.['pattern'] && formulario.get('endereco.cep')?.touched">Digite o CEP no padrão: XXXXX-XXX</div>
       </div>
       <button class="btn btn-primary" type="submit" (click) ="registrarCliente()" [disabled]="!formulario.valid">Enviar</button>
-      <a routerLink="/home" class="btn btn-primary">Cancelar</a>
+      <a routerLink="/listarClientes" class="btn btn-primary">Cancelar</a>
     </form>
   </div>
 </section>

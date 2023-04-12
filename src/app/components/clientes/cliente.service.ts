@@ -59,8 +59,8 @@ export class ClienteService {
     cliente.endereco.cep = cliente.endereco.cep.replace('-', '')
     cliente.nome = cliente.nome.toUpperCase()
     cliente.nome = cliente.nome.replace(/\s{2,}/g, " ")
-    cliente.endereco.logradouro = cliente.endereco.logradouro.toUpperCase()
-    cliente.endereco.logradouro = cliente.endereco.logradouro.replace(/\s{2,}/g, " ")
+    cliente.endereco.rua = cliente.endereco.rua.toUpperCase()
+    cliente.endereco.rua = cliente.endereco.rua.replace(/\s{2,}/g, " ")
 
 
     return cliente

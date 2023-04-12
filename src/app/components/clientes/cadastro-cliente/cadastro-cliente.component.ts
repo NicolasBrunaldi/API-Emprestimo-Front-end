@@ -30,7 +30,7 @@ export class CadastroClienteComponent implements OnInit{
       endereco: this.formBuilder.group({
         numero: [0, Validators.compose([Validators.required, Validators.min(1), Validators.max(999999), Validators.pattern(/^\d*[1-9]\d*$/)])],
 
-        logradouro: ['', Validators.compose([Validators.required, EspacoEmBrancoValidator])],
+        rua: ['', Validators.compose([Validators.required, EspacoEmBrancoValidator])],
 
         cep: ['', Validators.compose([Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)])]
       }),
