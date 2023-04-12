@@ -1,0 +1,30 @@
+.navigator{
+
+  background-color: #332E31;
+  width: 100%;
+  padding: 0.5%;
+  color: white;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  top: 0;
+}
+
+.links{
+
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.logo-minsait{
+  margin-right: 1%;
+}
+
+.links:hover {
+  transform: scale(1.1);
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s ease-out;
+  text-shadow: 0 0 10px #ffff;
+}

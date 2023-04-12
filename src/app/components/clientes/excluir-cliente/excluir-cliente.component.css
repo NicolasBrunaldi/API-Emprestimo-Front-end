@@ -1,0 +1,34 @@
+section{
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 20%;
+  height: 100%;
+}
+
+.tela-exclusao{
+
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #332E31;
+    background-color: #332E31;
+    color: white;
+    margin: auto;
+    padding: 3vh;
+    width: 25%;
+    border-radius: 10px;
+  }
+
+  .botao{
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+
+  }
+
+  h5{
+    text-align: center;
+  }
+
+  .btn-aceitar{
+    margin-right: 8vh;
+  }

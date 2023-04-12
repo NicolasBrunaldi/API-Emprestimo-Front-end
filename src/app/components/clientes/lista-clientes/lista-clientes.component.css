@@ -1,0 +1,73 @@
+section{
+  padding-top: 10%;
+}
+
+.msg-alerta{
+
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  width: 25%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.msg-alerta:hover {
+  box-shadow: 0 0px 8px rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.tabela{
+
+  border: 1px solid #332E31;
+  background-color: #332E31;
+  color: white;
+  margin: 5%;
+  margin-top: 2vh;
+  padding: 3vh;
+  border-radius: 10px;
+}
+
+.cor-sobreposta{
+  color: white;
+}
+
+.btn-adicionar{
+  margin-bottom: 2vh;
+}
+
+.mensagem-sem-clientes{
+  display: flex;
+  padding: 1;
+  color: yellow;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coluna{
+  text-align: center;
+  padding: 2vh;
+
+}
+
+.coluna-normal{
+
+  width: 25vh;
+}
+
+.coluna-small {
+
+
+  width: 10vh;
+}
+
+.botao{
+
+  margin: 1vh;
+}
+
+
+.centralizar-tabela{
+  margin: auto;
+}

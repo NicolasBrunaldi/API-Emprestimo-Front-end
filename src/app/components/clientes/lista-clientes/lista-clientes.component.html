@@ -1,0 +1,74 @@
+|
+<section>
+  <div class="alert alert-success msg-alerta" role="alert" *ngIf="cadastroConcluido"><b>Cliente cadastrado com sucesso!</b><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+  <div class="alert alert-danger msg-alerta" role="alert" *ngIf="deletadoSucesso"><b>Cliente excluído com sucesso!</b><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+  <div class="alert alert-primary msg-alerta" role="alert" *ngIf="atualizadoSucesso"><b>Cliente atualizado com sucesso!</b><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+  <div class="alert alert-primary msg-alerta" role="alert" *ngIf="semAlteracao"><b>Não houve alterações no cliente!</b><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+  <div class="tabela">
+    <table class="table-bordered cor-sobreposta centralizar-tabela">
+      <thead>
+        <tr class="coluna">
+          <th>
+            <a
+              routerLink="/cadastrarCliente"
+              class="btn-adicionar btn btn-success botao"
+              href="#"
+              ><i class="bi bi-plus-lg"></i
+            ></a>
+          </th>
+          <th class="coluna-normal" scope="col">CPF</th>
+          <th class="coluna-small" scope="col">NOME</th>
+          <th class="coluna-normal" scope="col">TELEFONE</th>
+          <th class="coluna-normal" scope="col">RENDIMENTO MENSAL</th>
+          <th class="coluna-normal" scope="col">LOGRADOURO</th>
+          <th class="coluna-small" scope="col">NUMERO</th>
+          <th class="coluna-small" scope="col">CEP</th>
+          <th class="coluna-small acoes-centro" colspan="2" scope="col">
+            AÇÕES
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+<ng-container *ngIf="clientes.length > 0; else semClientes">
+  <tr class="coluna" *ngFor="let cliente of clientes">
+    <td colspan="2" class="coluna-small">
+      {{ formatarCpf(cliente.cpf) }}
+    </td>
+    <td class="coluna-normal">{{ cliente.nome }}</td>
+    <td class="coluna-small">
+      {{ formatarTelefone(cliente.telefone) }}
+    </td>
+    <td class="coluna-small">R${{ cliente.rendimentoMensal }}</td>
+    <td class="coluna-normal">{{ cliente.endereco.logradouro }}</td>
+    <td class="coluna-small">{{ cliente.endereco.numero }}</td>
+    <td class="coluna-small">
+      {{ formatarCep(cliente.endereco.cep) }}
+    </td>
+    <td class="coluna-small">
+      <a routerLink="/atualizarCliente/{{cliente.cpf}}" class="btn btn-primary botao"
+        ><i class="bi bi-pencil-square fs-5"></i
+      ></a>
+    </td>
+    <td class="coluna-small">
+      <a
+        routerLink="/excluirCliente/{{ cliente.cpf }}"
+        class="btn btn-danger"
+        ><i class="bi bi-trash fs-5"></i
+      ></a>
+    </td>
+  </tr>
+</ng-container>
+
+<ng-template #semClientes>
+  <tr class="coluna">
+    <td colspan="9">
+      <div class="mensagem-sem-clientes">
+        <h5>Ainda não há clientes cadastrados!</h5>
+      </div>
+    </td>
+  </tr>
+</ng-template>
+      </tbody>
+    </table>
+  </div>
+</section>
