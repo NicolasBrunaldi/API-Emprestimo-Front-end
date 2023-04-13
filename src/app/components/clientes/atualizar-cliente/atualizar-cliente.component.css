@@ -39,3 +39,7 @@ button{
   color: #ff0000;
 }
 
+input::placeholder{
+
+  opacity: 0.6;
+}

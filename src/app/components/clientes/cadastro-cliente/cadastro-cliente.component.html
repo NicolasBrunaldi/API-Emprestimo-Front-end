@@ -56,8 +56,6 @@
         <div class="msg-erro" *ngIf="formulario.get('rendimentoMensal')?.errors?.['pattern'] && formulario.get('rendimentoMensal')?.touched">Apenas números neste padrão: 1000.00</div>
         <div class="msg-erro" *ngIf="formulario.get('rendimentoMensal')?.errors?.['maxlength'] && formulario.get('rendimentoMensal')?.touched">Ultrapassou o limite, insira no máximo até o 9 bilhões</div>
       </div>
-
-      <p>Endereço:</p>
       <div class="mb-3 input-container" formGroupName="endereco">
         <label class="form-label" for="rua">Logradouro:</label>
         <input

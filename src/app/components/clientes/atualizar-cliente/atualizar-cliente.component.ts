@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EspacoEmBrancoValidator } from '../espacoEmBrancoValidator';
 
 @Component({
   selector: 'app-atualizar-cliente',
@@ -26,20 +27,19 @@ export class AtualizarClienteComponent implements OnInit{
 
     this.formulario = this.formBuilder.group({
       endereco: this.formBuilder.group({
-        numero: [0, Validators.compose([Validators.min(1), Validators.max(999999), Validators.pattern(/^\d*[1-9]\d*$/)])],
+        numero: [0, Validators.compose([Validators.required, Validators.min(1), Validators.max(999999), Validators.pattern(/^\d*[1-9]\d*$/)])],
 
-        rua: [''],
+        rua: ['', Validators.compose([Validators.required, EspacoEmBrancoValidator])],
 
-        cep: ['', Validators.compose([Validators.pattern(/^\d{5}-\d{3}$/)])]
+        cep: ['', Validators.compose([Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)])]
       }),
 
-      nome: ['', Validators.compose([Validators.minLength(3),])],
+      nome: ['', Validators.compose([Validators.required, Validators.minLength(3),EspacoEmBrancoValidator])],
 
-      telefone: ['', Validators.compose([Validators.pattern(/^\(\d{2}\)(?:\d{4}-\d{4}|\d{5}-\d{4})$/)])],
+      telefone: ['', Validators.compose([Validators.required, Validators.pattern(/^\(\d{2}\)(?:\d{4}-\d{4}|\d{5}-\d{4})$/)])],
 
-      rendimentoMensal: ['', Validators.compose([Validators.maxLength(13), Validators.pattern(/^\d+(\.\d{1,2})?$/)])]
+      rendimentoMensal: ['', Validators.compose([Validators.required, Validators.maxLength(13), Validators.pattern(/^\d+(\.\d{1,2})?$/)])]
     })
-
     const cpf = this.route.snapshot.paramMap.get('cpf')
     this.service.buscarPeloCpf(cpf!).subscribe((cliente) =>{
       this.cpf = cliente.cpf

@@ -11,7 +11,9 @@
           id="nome"
           formControlName="nome"
         />
+        <div class="msg-erro" *ngIf="formulario.get('nome')?.errors?.['required'] && formulario.get('nome')?.touched">Campo obrigatório!</div>
         <div class="msg-erro" *ngIf="formulario.get('nome')?.errors?.['minlength'] && formulario.get('nome')?.touched">O nome precisa ter pelo menos 3 letras</div>
+        <div class="msg-erro" *ngIf="formulario.get('nome')?.errors?.['espacoEmBranco'] && formulario.get('nome')?.touched">O nome não pode estar vazio</div>
         <label class="form-label" for="telefone">Telefone:</label>
         <input
           placeholder="(11) 8888-9999"
@@ -21,6 +23,7 @@
           formControlName="telefone"
 
         />
+        <div class="msg-erro" *ngIf="formulario.get('telefone')?.errors?.['required'] && formulario.get('telefone')?.touched">Campo obrigatório!</div>
         <div class="msg-erro" *ngIf="formulario.get('telefone')?.errors?.['pattern'] && formulario.get('telefone')?.touched">Digite o telefone no padrão (XX)XXXX-XXXX</div>
         <label class="form-label" for="rendimento">Rendimento mensal:</label>
         <input
@@ -32,6 +35,7 @@
 
 
         />
+        <div class="msg-erro" *ngIf="formulario.get('rendimentoMensal')?.errors?.['required'] && formulario.get('rendimentoMensal')?.touched">Campo obrigatório!</div>
         <div class="msg-erro" *ngIf="formulario.get('rendimentoMensal')?.errors?.['pattern'] && formulario.get('rendimentoMensal')?.touched">Apenas números neste padrão: 1000.00</div>
         <div class="msg-erro" *ngIf="formulario.get('rendimentoMensal')?.errors?.['maxlength'] && formulario.get('rendimentoMensal')?.touched">Ultrapassou o limite, insira no máximo até 9 bilhões</div>
       </div>
@@ -46,6 +50,8 @@
           id="rua"
           formControlName="rua"
         />
+        <div class="msg-erro" *ngIf="formulario.get('endereco.rua')?.errors?.['required'] && formulario.get('endereco.rua')?.touched">Campo obrigatório!</div>
+        <div class="msg-erro" *ngIf="formulario.get('endereco.rua')?.errors?.['espacoEmBranco'] && formulario.get('endereco.rua')?.touched">O nome não pode estar vazio</div>
         <label class="form-label" for="numero">Número:</label>
         <input
           placeholder=""
@@ -54,7 +60,8 @@
           id="numero"
           formControlName="numero"
         />
-        <div class="msg-erro" *ngIf="formulario.get('endereco.numero')?.errors?.['pattern'] && formulario.get('endereco.numero')?.touched">Apenas números positivos e acima de 0</div>
+        <div class="msg-erro" *ngIf="formulario.get('endereco.numero')?.errors?.['required'] && formulario.get('endereco.numero')?.touched">Campo obrigatório!</div>
+        <div class="msg-erro" *ngIf="formulario.get('endereco.numero')?.touched &&  formulario.get('endereco.numero')?.errors?.['pattern'] ">Apenas números positivos e acima de 0</div>
         <div class="msg-erro" *ngIf="formulario.get('endereco.numero')?.errors?.['max'] && formulario.get('endereco.numero')?.touched ">Ultrapassou o limite, insira até 6 dígitos</div>
         <label class="form-label" for="cep">CEP:</label>
         <input
@@ -66,6 +73,7 @@
 
 
         />
+        <div class="msg-erro" *ngIf="formulario.get('endereco.cep')?.errors?.['required'] && formulario.get('endereco.cep')?.touched">Campo obrigatório!</div>
         <div class="msg-erro" *ngIf="formulario.get('endereco.cep')?.errors?.['pattern'] && formulario.get('endereco.cep')?.touched">Digite o CEP no padrão: XXXXX-XXX</div>
       </div>
       <button class="btn btn-primary" type="submit" (click) ="atualizarCliente()" [disabled]="!formulario.valid">Enviar</button>
